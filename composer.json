@@ -1,0 +1,33 @@
+{
+    "name": "squille/trail",
+    "description": "A php implementation to send log-messages to a Squille Trail compatible server",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jair Humberto",
+            "email": "jairhumberto@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.9",
+        "psr/log": "~1.0",
+        "paragonie/constant_time_encoding": "^1|^2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Trail\\": "src/Trail"
+        }
+    },
+    "provide": {
+        "psr/log-implementation": "~1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.8.36",
+        "squizlabs/php_codesniffer": "~2.0"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.4.x-dev"
+        }
+    }
+}
