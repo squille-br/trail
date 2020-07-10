@@ -28,7 +28,9 @@ class User implements JsonSerializable
     $this->password = $password;
   }
 
-  #Override
+  /**
+   * {@inheritdoc}
+   */
   public function jsonSerialize()
   {
     return array(

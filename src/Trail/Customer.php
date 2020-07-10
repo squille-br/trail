@@ -17,7 +17,9 @@ class Customer implements JsonSerializable
     $this->name = $name;
   }
 
-  #Override
+  /**
+   * {@inheritdoc}
+   */
   public function jsonSerialize()
   {
     return array(

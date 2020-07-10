@@ -28,7 +28,9 @@ class Application implements JsonSerializable
     $this->version = $version;
   }
 
-  #Override
+  /**
+   * {@inheritdoc}
+   */
   public function jsonSerialize()
   {
     return array(

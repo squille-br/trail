@@ -61,7 +61,9 @@ class Log implements JsonSerializable
     $this->message = $message;
   }
 
-  #Override
+  /**
+   * {@inheritdoc}
+   */
   public function jsonSerialize()
   {
     return array(
