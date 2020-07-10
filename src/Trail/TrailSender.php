@@ -22,7 +22,7 @@ class TrailSender
   {
     if (is_null(self::$instance))
     {
-      self::$instance = new Sender($ip, $port, $public_key_path);
+      self::$instance = new TrailSender($ip, $port, $public_key_path);
     }
 
     return $self::$instance;
