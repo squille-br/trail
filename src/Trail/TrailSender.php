@@ -1,5 +1,5 @@
 <?php
-namespace Trail;
+namespace Squille\Trail;
 
 class TrailSender
 {
