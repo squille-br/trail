@@ -12,10 +12,10 @@ class TrailSender
 
   private function __construct($ip, $port, $public_key_path)
   {
-    @$this->socket = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
+    $this->socket = socket_create(AF_INET, SOCK_DGRAM, SOL_UDP);
     $this->ip = $ip;
     $this->port = $port;
-    $this->public_key = file_get_contents($public_key_path);
+    $this->public_key = file_get_contents($public_key_path, false, stream_context_create(array('ssl'=>array('verify_peer'=>false, 'verify_peer_name'=>false))));
   }
 
   public static function getInstance($ip, $port, $public_key_path)
@@ -34,7 +34,7 @@ class TrailSender
 
     if (!is_null($encrypted))
     {
-      @socket_sendto($this->socket, $encrypted, strlen($encrypted), 0x100, $this->ip, $this->port);
+      @socket_sendto($this->socket, $encrypted, strlen($encrypted), MSG_DONTROUTE, $this->ip, $this->port);
     }
   }
 
@@ -42,7 +42,7 @@ class TrailSender
   {
     $data = json_encode($message);
 
-    if (openssl_public_encrypt($data, $encrypted, $this->public_key, OPENSSL_NO_PADDING))
+    if (openssl_seal($data, $encrypted, $ekeys, array($this->public_key)))
     {
       return $encrypted;
     }

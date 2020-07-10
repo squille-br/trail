@@ -34,7 +34,6 @@ class User implements JsonSerializable
   public function jsonSerialize()
   {
     return array(
-        'Id' => null,
         'UserName' => $this->getUserName(),
         'Password' => $this->getPassword()
         );
