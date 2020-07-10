@@ -25,7 +25,7 @@ class TrailSender
       self::$instance = new TrailSender($ip, $port, $public_key_path);
     }
 
-    return $self::$instance;
+    return self::$instance;
   }
 
   public function send(Message $message)
