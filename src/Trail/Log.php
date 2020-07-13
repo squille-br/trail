@@ -67,7 +67,6 @@ class Log implements JsonSerializable
   public function jsonSerialize()
   {
     return array(
-        'Id' => null,
         'DateTime' => $this->getDateTime(),
         'Application' => $this->getApplication(),
         'Customer' => $this->getCustomer(),

@@ -23,7 +23,6 @@ class Customer implements JsonSerializable
   public function jsonSerialize()
   {
     return array(
-        'Id' => null,
         'Name' => $this->getName()
         );
   }

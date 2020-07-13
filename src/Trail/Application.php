@@ -34,7 +34,6 @@ class Application implements JsonSerializable
   public function jsonSerialize()
   {
     return array(
-        'Id' => null,
         'Name' => $this->getName(),
         'Version' => $this->getVersion()
         );
