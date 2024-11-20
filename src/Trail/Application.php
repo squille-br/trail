@@ -31,7 +31,7 @@ class Application implements JsonSerializable
   /**
    * {@inheritdoc}
    */
-  public function jsonSerialize()
+  public function jsonSerialize(): array
   {
     return array(
         'Name' => $this->getName(),

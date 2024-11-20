@@ -31,7 +31,7 @@ class User implements JsonSerializable
   /**
    * {@inheritdoc}
    */
-  public function jsonSerialize()
+  public function jsonSerialize(): array
   {
     return array(
         'UserName' => $this->getUserName(),
