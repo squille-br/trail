@@ -31,7 +31,7 @@ class Message implements JsonSerializable
   /**
    * {@inheritdoc}
    */
-  public function jsonSerialize()
+  public function jsonSerialize(): array
   {
     return array(
         'User' => $this->getUser(),

@@ -64,7 +64,7 @@ class Log implements JsonSerializable
   /**
    * {@inheritdoc}
    */
-  public function jsonSerialize()
+  public function jsonSerialize(): array
   {
     return array(
         'DateTime' => $this->getDateTime(),

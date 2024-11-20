@@ -20,7 +20,7 @@ class TrailSender
 
   public function __destruct()
   {
-    @openssl_free_key($public_key);
+    @openssl_free_key($this->public_key);
   }
 
   public static function getInstance($ip, $port, $public_key_path)
@@ -47,7 +47,7 @@ class TrailSender
   {
     $data = json_encode($message);
 
-    if (@openssl_seal($data, $encrypted, $ekeys, array($this->public_key)))
+    if (@openssl_seal($data, $encrypted, $ekeys, array($this->public_key), 'RC4'))
     {
       return sprintf('%s%s', $ekeys[0], $encrypted);
     }
